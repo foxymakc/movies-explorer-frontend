@@ -1,0 +1,180 @@
+.aboutproject {
+  display: flex;
+  max-width: 1280px;
+  padding: 110px 70px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.aboutproject__title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+  color: #000000;
+  padding-bottom: 23px;
+  border-bottom: 1px solid #000000;
+  margin: 0;
+}
+
+.aboutproject__columns {
+  list-style-type: none;
+  display: flex;
+  max-width: 1140px;
+  margin: 70px auto 110px;
+  padding: 0;
+  gap: 40px;
+  color: #000;
+}
+
+.aboutproject__column {
+  max-width: 550px;
+}
+
+.aboutproject__column-title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+  color: #000000;
+  margin: 0;
+  margin-bottom: 26px;
+}
+
+.aboutproject__column-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+  margin: 0;
+}
+
+.aboutproject__line {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 36px 31px;
+  justify-items: stretch;
+  padding: 0;
+  margin: 0;
+}
+
+.aboutproject__line-title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  display: flex;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.aboutproject__line-title:nth-child(1) {
+  background-color: #2be080;
+  color: #000;
+}
+
+.aboutproject__line-title:nth-child(2) {
+  background-color: #f2f2f2;
+}
+
+.aboutproject__line-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: #a0a0a0;
+  margin: 0;
+}
+
+@media (max-width: 770px) {
+  .aboutproject__line {
+    grid-template-columns: minmax(100px, 140px) minmax(184px, 528px);
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutproject {
+    padding: 90px 50px;
+  }
+
+  .aboutproject__columns {
+    gap: 35px;
+    margin-bottom: 93px;
+  }
+
+  .aboutproject__column-title {
+    margin-bottom: 22px;
+  }
+
+  .aboutproject__column-text {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media (max-width: 570px) {
+  .aboutproject__columns {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 399px) {
+  .aboutproject {
+    padding: 70px 18px;
+  }
+
+  .aboutproject__title {
+    font-size: 18px;
+    line-height: 22px;
+    padding-bottom: 28px;
+  }
+
+  .aboutproject__columns {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    gap: 56px;
+  }
+
+  .aboutproject__column-title {
+    margin-bottom: 16px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .aboutproject__column-text {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .aboutproject__line {
+    grid-template-rows: 35px 23px;
+  }
+
+  .aboutproject__line-title {
+    font-size: 11px;
+    line-height: 13px;
+  }
+
+  .aboutproject__line-text {
+    font-size: 11px;
+    line-height: 13px;
+  }
+}
