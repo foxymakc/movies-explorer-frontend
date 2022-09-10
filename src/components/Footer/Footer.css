@@ -2,12 +2,12 @@
   max-width: 1140px;
   max-height: 172px;
   margin: 0 auto;
-  padding: 79px 70px 20px;
+  padding: 78px 70px 20px;
   background-color: #fafafa;
 }
 
 .footer__text {
-  font-family: "Inter";
+  font-family: "Inter", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
@@ -30,12 +30,12 @@
 
 .footer__links {
   display: flex;
-  gap: 20px;
+  gap: 21px;
 }
 
 .footer__link {
   text-decoration: none;
-  font-family: "Inter";
+  font-family: "Inter", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
@@ -43,10 +43,15 @@
   text-align: right;
   color: #000000;
   margin: 0;
+  opacity: 1;
+}
+
+.footer__link:hover {
+  opacity: 0.5;
 }
 
 .footer__copyright-text {
-  font-family: "Inter";
+  font-family: "Inter", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 13px;

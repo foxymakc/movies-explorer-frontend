@@ -23,12 +23,17 @@
 
 .navtab__link {
   text-decoration: none;
-  font-family: "Inter";
+  font-family: "Inter", "Arial", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
   color: #000000;
+  opacity: 1;
+}
+
+.navtab__link:hover {
+  opacity: 0.5;
 }
 
 @media (max-width: 399px) {

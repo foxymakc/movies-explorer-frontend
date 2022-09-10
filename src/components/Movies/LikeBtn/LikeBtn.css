@@ -6,6 +6,11 @@
   border: none;
   cursor: pointer;
   padding: 5px 8px 15px;
+  opacity: 1;
+}
+
+.moviescard__like:hover {
+  opacity: 0.5;
 }
 
 .moviescard__like_active {
@@ -17,4 +22,9 @@
   border: none;
   cursor: pointer;
   padding: 5px 8px 15px;
+  opacity: 1;
+}
+
+.moviescard__like_active:hover {
+  opacity: 0.5;
 }

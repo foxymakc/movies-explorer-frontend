@@ -10,7 +10,7 @@
 }
 
 .input__label {
-  font-family: "Inter";
+  font-family: "Inter", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
@@ -23,7 +23,7 @@
   border: none;
   border-bottom: 1px solid #e8e8e8;
   padding-bottom: 10px;
-  font-family: "Inter";
+  font-family: "Inter", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -37,7 +37,7 @@
 }
 
 .input__error-span {
-  font-family: "Inter";
+  font-family: "Inter", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 10px;

@@ -6,4 +6,9 @@
   border: none;
   cursor: pointer;
   padding: 5px 8px 15px;
+  opacity: 0;
+}
+
+.moviescard__like_remove:hover {
+  opacity: 1;
 }

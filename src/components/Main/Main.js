@@ -5,15 +5,16 @@ import Techs from "./Techs/Techs";
 import AboutMe from "./AboutMe/AboutMe";
 import Portfolio from "./Portfolio/Portfolio";
 
-const Main = () => (
-  
-  <main>
-    <Promo />
-    <AboutProject />
-    <Techs />
-    <AboutMe />
-    <Portfolio />
-  </main>
-);
+function Main() {
+  return (
+    <main>
+      <Promo />
+      <AboutProject />
+      <Techs />
+      <AboutMe />
+      <Portfolio />
+    </main>
+  );
+}
 
 export default Main;

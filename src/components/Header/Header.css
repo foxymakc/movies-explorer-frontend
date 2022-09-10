@@ -26,6 +26,11 @@
   cursor: pointer;
   width: 44px;
   height: 44px;
+  opacity: 1;
+}
+
+.header__btn-menu:hover {
+  opacity: 0.5;
 }
 
 .header__logo {
@@ -47,12 +52,21 @@
 
 .header__films-link {
   text-decoration: none;
-  font-family: "Inter";
+  font-family: "Inter", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
   line-height: 18px;
   color: #000000;
+  opacity: 1;
+}
+
+.header__films-link:hover {
+  opacity: 0.5;
+}
+
+.header__films-link_active {
+  font-weight: 500;
 }
 
 .header__profile-btn {
@@ -64,6 +78,11 @@
   border-radius: 50px;
   padding: 8px 12px 8px 6px;
   justify-content: center;
+  opacity: 1;
+}
+
+.header__profile-btn:hover {
+  opacity: 0.5;
 }
 
 .logo__profile {
@@ -75,7 +94,7 @@
 
 .header__profile-btn-text {
   text-decoration: none;
-  font-family: "Inter";
+  font-family: "Inter", "Arial", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;

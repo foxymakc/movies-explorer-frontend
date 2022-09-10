@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import accountLogo from "../../images/profile.svg";
 import "./Navigation.css";
 
@@ -11,15 +12,26 @@ function Navigation(props) {
             className="navigation__btn-close"
             onClick={props.onClose}
           ></button>
-          <a className="navigation__link" href="/">
+          <NavLink
+            to="/"
+            className="navigation__link"
+          >
             Главная
-          </a>
-          <a className="navigation__link" href="/movies">
+          </NavLink>
+          <NavLink
+            to="/movies"
+            className="navigation__link"
+            activeClassName="navigation__link_active"
+          >
             Фильмы
-          </a>
-          <a className="navigation__link" href="/saved-movies">
+          </NavLink>
+          <NavLink
+            to="/saved-movies"
+            className="navigation__link"
+            activeClassName="navigation__link_active"
+          >
             Сохранённые фильмы
-          </a>
+          </NavLink>
         </div>
         <div className="header__profile-btn">
           <a href="/profile" className="header__profile-btn-text">

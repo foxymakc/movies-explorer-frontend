@@ -9,8 +9,11 @@ import Login from "../Login/Login";
 import Header from "../Header/Header";
 import Movies from "../Movies/Movies";
 import Navigation from "../Navigation/Navigation";
+import SavedMovies from "../SavedMovies/SavedMovies";
+import Profile from "../Profile/Profile";
+import NotFound from "../NotFound/NotFound";
 
-const App = () => {
+function App() {
   let history = useHistory();
 
   const [isEditMenuOpen, setEditMenuOpen] = React.useState(false);
@@ -44,11 +47,28 @@ const App = () => {
           <Header onEditMenu={handleEditMenuClick} />
           <Movies />
           <Footer />
-          <Navigation isOpen={isEditMenuOpen} onClose={closeMenu}/>
+          <Navigation isOpen={isEditMenuOpen} onClose={closeMenu} />
+        </Route>
+
+        <Route path="/saved-movies">
+          <Header onEditMenu={handleEditMenuClick} />
+          <SavedMovies />
+          <Footer />
+          <Navigation isOpen={isEditMenuOpen} onClose={closeMenu} />
+        </Route>
+
+        <Route path="/profile">
+          <Header onEditMenu={handleEditMenuClick} />
+          <Profile />
+          <Navigation isOpen={isEditMenuOpen} onClose={closeMenu} />
+        </Route>
+
+        <Route path="*">
+          <NotFound history={history} />
         </Route>
       </Switch>
     </div>
   );
-};
+}
 
 export default App;

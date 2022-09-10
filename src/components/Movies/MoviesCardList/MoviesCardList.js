@@ -3,9 +3,9 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 
 import "./MoviesCardList.css";
 
-const MoviesCardList = ({ moviesList, isRenderLike }) => {
+function MoviesCardList({ moviesList, isRenderLike }) {
   return (
-    <div className="moviescardlist">
+    <div className="moviescard-list">
       {moviesList.map((moviesCard) => (
         <MoviesCard
           key={moviesCard.movieId}
@@ -15,6 +15,6 @@ const MoviesCardList = ({ moviesList, isRenderLike }) => {
       ))}
     </div>
   );
-};
+}
 
 export default MoviesCardList;

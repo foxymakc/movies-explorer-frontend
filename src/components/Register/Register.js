@@ -27,9 +27,9 @@ function Register() {
   };
 
   return (
-    <div class="register">
-      <header class="header__auth">
-        <a href="/" class="header__auth-logo">
+    <div className="register">
+      <header className="header__auth">
+        <a href="/" className="header__auth-logo">
           <Logo />
         </a>
       </header>
@@ -37,6 +37,7 @@ function Register() {
       <Form
         name="form-register"
         title="Добро пожаловать!"
+        FormBtnRegister
         onSubmit={handleSubmit}
         textBtn="Зарегистрироваться"
         textSpan="Уже зарегистрированы?"
