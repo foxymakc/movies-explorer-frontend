@@ -2,20 +2,30 @@
   max-width: 1140px;
   max-height: 74px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin: 0 auto;
   padding-left: 70px;
   padding-right: 70px;
 }
 
-.header__links {
+.header__pc {
   display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo {
-  width: 38px;
-  height: 38px;
+.header__tab {
+  display: none;
+}
+
+.header__btn-menu {
+  background: transparent url(./../../images/icon_menu.svg) no-repeat;
+  background-position: 50%;
+  background-size: 44px 44px;
+  border: none;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
 }
 
 .header__logo {
@@ -24,52 +34,90 @@
   margin-bottom: 18px;
 }
 
-.header__profile {
+.header__links {
   display: flex;
-  margin-right: 0;
+  align-items: center;
 }
 
-.header__profile-link {
+.header__films {
+  display: flex;
+  margin-left: 44px;
+  gap: 17px;
+}
+
+.header__films-link {
+  text-decoration: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  color: #000000;
+}
+
+.header__profile-btn {
+  display: flex;
+  box-sizing: border-box;
+  width: 100px;
+  height: 32px;
+  border: 2px solid #e5e5e5;
+  border-radius: 50px;
+  padding: 8px 12px 8px 6px;
+  justify-content: center;
+}
+
+.logo__profile {
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+  margin-right: 4px;
+}
+
+.header__profile-btn-text {
   text-decoration: none;
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 16px;
-  padding: 8px 30px;
-  color: #000;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  margin: 0;
+  cursor: pointer;
 }
 
-.header__profile-link:last-child {
-  background-color: #2be080;
-  border-radius: 3px;
-  padding-left: 20px;
-  padding-right: 20px;
+@media (max-width: 769px) {
+  .header__pc {
+    display: none;
+  }
 }
-
 
 @media (max-width: 768px) {
   .header {
+    max-width: 768px;
     padding-left: 30px;
     padding-right: 30px;
   }
+
+  .header__tab {
+    width: 100%;
+    max-height: 74px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
-@media (max-width: 399px) {
+@media (max-width: 320px) {
   .header {
     padding-left: 14px;
     padding-right: 14px;
   }
 
-  .header__profile-link {
-    font-size: 10px;
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-
-  .header__profile-link:last-child {
-    padding: 1px 12px;
-    display: flex;
-    align-items: center;
+  .header__btn-menu {
+    background-size: 35px 44px;
+    width: 40px;
+    height: 44px;
   }
 }

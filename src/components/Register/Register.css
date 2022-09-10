@@ -1,0 +1,38 @@
+.register {
+  display: flex;
+  max-width: 396px;
+  margin: 0 auto;
+  flex-direction: column;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.header__auth {
+  margin-bottom: 40px;
+}
+
+.header__auth-logo {
+  display: flex;
+  margin: 0;
+}
+
+@media (max-width: 769px) {
+  .register {
+    padding-top: 232px;
+    padding-bottom: 232px;
+  }
+}
+
+@media (max-width: 450px) {
+  .register {
+    padding: 56px 30px 30px;
+  }
+
+  .header__auth {
+    margin-bottom: 50px;
+  }
+
+  .header__auth-logo {
+    justify-content: center;
+  }
+}

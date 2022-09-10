@@ -1,0 +1,9 @@
+.moviescard__like_remove {
+  width: 30px;
+  height: 30px;
+  background: transparent url(./../../../images/remove_like.svg) no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  padding: 5px 8px 15px;
+}
