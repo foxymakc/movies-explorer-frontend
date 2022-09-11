@@ -16,4 +16,4 @@
 
 ## Домен сервера
 
-https://diplom.movies-explorer.nomoredomains.sbs 
+https://diplom.movies-explorer.nomorepartiesxyz.ru 
