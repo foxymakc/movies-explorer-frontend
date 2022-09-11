@@ -51,8 +51,7 @@
   line-height: 13px;
   text-align: right;
   color: #000000;
-  outline-color: #2BE080;
-  outline-style: hidden;
+  outline-style: none;
 }
 
 .profile__submit-group {

@@ -15,10 +15,10 @@ function Profile() {
             name="name"
             maxLength="30"
             minLength="2"
-            placeholder="Виталий"
+            placeholder="Имя"
             required
             pattern="^[A-Za-z]([A-Za-z]| |-){1,28}[A-Za-z]$"
-            defaultValue="Виталий"
+            value="Виталий"
           />
         </div>
         <div className="profile__input">
@@ -28,10 +28,10 @@ function Profile() {
             className="profile__input-item"
             id="email"
             name="email"
-            placeholder="practicum@yandex.ru"
+            placeholder="Почта"
             required
             pattern="^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$"
-            defaultValue="practicum@yandex.ru"
+            value="pochta@yandex.ru"
           />
         </div>
         <fieldset className="profile__submit-group">

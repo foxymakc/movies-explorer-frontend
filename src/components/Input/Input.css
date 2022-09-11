@@ -36,6 +36,14 @@
   border-bottom: 1px solid #2be080;
 }
 
+.input__item_error {
+  color: #ee3465;
+}
+
+.input__item_error:focus {
+  border-bottom: 1px solid #ee3465;
+}
+
 .input__error-span {
   font-family: "Inter", "Arial", sans-serif;
   font-style: normal;
@@ -46,12 +54,4 @@
   position: absolute;
   top: 52px;
   left: 0;
-}
-
-.input__error {
-  color: #ee3465;
-}
-
-.input__error:focus {
-  border-bottom: 1px solid #ee3465;
 }

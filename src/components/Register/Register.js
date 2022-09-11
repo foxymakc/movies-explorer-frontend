@@ -23,7 +23,7 @@ function Register() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!email || !password) return;
+    if ( !email || !password ) return;
   };
 
   return (
@@ -54,7 +54,7 @@ function Register() {
           required
           errorId="name-error"
           onChange={handleNameChange}
-          value={name}
+          value={name || "Виталий"}
         >
           Имя
         </Input>
@@ -69,7 +69,7 @@ function Register() {
           required
           errorId="email-error"
           onChange={handleEmailChange}
-          value={email}
+          value={email || "pochta@yandex.ru|"}
         >
           E-mail
         </Input>
@@ -82,7 +82,9 @@ function Register() {
           required
           errorId="password-error"
           onChange={handlePasswordChange}
-          value={password}
+          value={password || "**************"}
+          errorText="Что-то пошло не так..."
+          isError
         >
           Пароль
         </Input>

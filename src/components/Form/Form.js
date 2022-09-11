@@ -3,7 +3,7 @@ import "./Form.css";
 
 function Form({ name, title, children, FormBtnRegister, textBtn, textSpan, Link, textLink }) {
   return (
-    <form className="form" name={name}>
+    <form className="form" name={name} noValidate>
       <h2 className="form__title">{title}</h2>
       {children}
       <fieldset className={FormBtnRegister

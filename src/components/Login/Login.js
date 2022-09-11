@@ -48,7 +48,7 @@ function Login() {
           required
           errorId="email-error"
           onChange={handleEmailChange}
-          value={email}
+          value={email || "pochta@yandex.ru|"}
         >
           E-mail
         </Input>
@@ -57,7 +57,7 @@ function Login() {
           type="password"
           id="password"
           name="password"
-          placeholder="Пароль"
+          placeholder=" "
           required
           errorId="password-error"
           onChange={handlePasswordChange}
