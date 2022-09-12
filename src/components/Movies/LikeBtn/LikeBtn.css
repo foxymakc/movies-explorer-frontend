@@ -1,0 +1,30 @@
+.moviescard__like {
+  width: 30px;
+  height: 30px;
+  background: transparent url(./../../../images/like_noactive.svg) no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  padding: 5px 8px 15px;
+  opacity: 1;
+}
+
+.moviescard__like:hover {
+  opacity: 0.5;
+}
+
+.moviescard__like_active {
+  width: 30px;
+  height: 30px;
+  background: transparent url(./../../../images/like_active.svg) no-repeat;
+  background-position: center;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  padding: 5px 8px 15px;
+  opacity: 1;
+}
+
+.moviescard__like_active:hover {
+  opacity: 0.5;
+}

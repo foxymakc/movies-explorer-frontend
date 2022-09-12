@@ -1,0 +1,50 @@
+.moviescards {
+  display: flex;
+  max-width: 1280px;
+  padding: 70px 0 80px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.moviebtnshow {
+  font-family: "Inter", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: none;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  width: 89%;
+  min-height: 36px;
+  margin-top: 61px;
+  padding: 0;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.moviebtnshow:hover {
+  opacity: 0.5;
+}
+
+@media (max-width: 900px) {
+  .moviebtnshow {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 320px) {
+  .moviescards {
+    padding-top: 40px;
+  }
+
+  .moviebtnshow {
+    margin-top: 76px;
+  }
+}

@@ -1,0 +1,150 @@
+.searchform {
+  display: flex;
+  padding: 60px 70px 10px;
+  max-width: 1140px;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.searchform__line {
+  display: flex;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.searchform__input {
+  border: none;
+  width: 100%;
+  padding: 14px 40px 14px 22px;
+  box-sizing: border-box;
+  border-radius: 40px;
+  background-color: #f9f9f9;
+  font-family: "Inter", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 17px;
+  color: #a0a0a0;
+  outline: none;
+}
+
+.searchform__input-btn {
+  border: none;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  background: #2be080;
+  border-radius: 48px;
+  background-image: url(./../../../images/search.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 1;
+}
+
+.searchform__input-btn:hover {
+  opacity: 0.5;
+}
+
+.searchform__filtercheckbox {
+  display: flex;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.searchform__switch {
+  display: flex;
+  position: relative;
+  width: 36px;
+  height: 20px;
+  margin: 42px auto 69px;
+  left: -70px;
+}
+
+.searchform__checkbox {
+  display: none;
+}
+
+.searchform__checkbox-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #c8c8c8;
+  transition: 0.4s;
+}
+
+.searchform__checkbox-slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #808080;
+  border: 1px solid #ffffff;
+  transition: 0.4s;
+}
+
+.searchform__checkbox:checked + .searchform__checkbox-slider {
+  background-color: #ebebeb;
+}
+
+.searchform__checkbox:checked + .searchform__checkbox-slider:before {
+  transform: translateX(15px);
+  background-color: #2be080;
+}
+
+.searchform__checkbox-slider.searchform__checkbox-round {
+  border-radius: 20px;
+}
+
+.searchform__checkbox-slider.searchform__checkbox-round:before {
+  border-radius: 50%;
+}
+
+.searchform__checkbox-text {
+  font-family: "Inter", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000000;
+  margin: 0;
+  margin-left: 48px;
+}
+
+@media (max-width: 900px) {
+  .searchform {
+    padding-top: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 800px) {
+  .searchform__switch {
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 320px) {
+  .searchform {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .searchform__switch {
+    margin-top: 44px;
+    margin-bottom: 48px;
+    left: -55px;
+  }
+
+  .searchform__checkbox-text {
+    font-size: 11px;
+  }
+}
