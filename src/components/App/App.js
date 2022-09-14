@@ -22,7 +22,6 @@ function App() {
 
   let history = useHistory();
   const location = useLocation();
-
   const [isRegisterError, setRegisterError] = useState(false);
   const [isLoginError, setLoginError] = useState(false);
   const [isProfileError, setProfileError] = useState(false);
