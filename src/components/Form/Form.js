@@ -1,15 +1,37 @@
-import React from "react";
+import React  from "react";
 import "./Form.css";
 
-function Form({ name, title, children, FormBtnRegister, textBtn, textSpan, Link, textLink }) {
+function Form({
+  name,
+  title,
+  children,
+  FormBtnRegister,
+  textBtn,
+  textSpan,
+  Link,
+  textLink,
+  isDisabled,
+  onSubmit,
+  isRegisterError,
+  isLoginError,
+  isErrorText
+}) {
   return (
-    <form className="form" name={name} noValidate>
+    <form className="form" name={name} noValidate onSubmit={onSubmit} >
       <h2 className="form__title">{title}</h2>
       {children}
-      <fieldset className={FormBtnRegister
-        ? 'form__submit-register'
-        : 'form__submit-login'}>
-        <button className="form__submit-btn" type="submit">
+      <fieldset
+        className={
+          FormBtnRegister ? "form__submit-register" : "form__submit-login"
+        }
+      >
+        { isRegisterError && <span className="form__error">{isErrorText}</span>}
+        { isLoginError && <span className="form__error">{isErrorText}</span>}
+        <button
+          className={isDisabled ? "form__submit-btn form__submit-btn_inactive" : "form__submit-btn"}
+          type="submit"
+          disabled={isDisabled}
+        >
           {textBtn}
         </button>
         <nav className="form__links-text">
