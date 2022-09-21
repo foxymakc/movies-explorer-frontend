@@ -7,7 +7,7 @@ import Footer from "../components/Footer/Footer";
 const SavedMoviesPage = (props) => (
   <React.Fragment>
     <Header onEditMenu={props.onEditMenu} />
-    <SavedMovies />
+    <SavedMovies onClickDeleteMovie={props.onClickDeleteMovie}/>
     <Footer />
     <Navigation isOpen={props.isOpen} onClose={props.onClose} />
   </React.Fragment>

@@ -16,7 +16,7 @@ function Login(props) {
     event.preventDefault();
     props.handleLogin(values.password, values.email);
   };
-console.log(isValid);
+
   return (
     <div className="register">
       <header className="header__auth">

@@ -15,6 +15,7 @@ function Profile(props) {
     event.preventDefault();
     props.handleUpdateUserInfo(values);
   };
+
   return (
     <section className="profile">
       <form className="profile__container" id="profile_form" onSubmit={handleSubmit}>
@@ -66,7 +67,7 @@ function Profile(props) {
             
             Редактировать
           </button>
-          <a className="profile__link" href="/" onClick={props.handleLogout}>
+          <a className="profile__link" onClick={props.onLogout} href="/" >
             Выйти из аккаунта
           </a>
         </fieldset>

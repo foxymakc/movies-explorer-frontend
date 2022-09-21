@@ -14,6 +14,11 @@
   height: 203px;
 }
 
+.moviecard__trailer {
+  display: flex;
+  margin: 0;
+}
+
 .moviescard__content {
   padding: 11px 16px 16px;
   display: flex;

@@ -1,7 +1,4 @@
-/*
 export const BASE_URL = "https://diplom.movies.nomoredomains.sbs"; 
-*/
-export const BASE_URL = "http://localhost:3001";
 
 const checkResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Ошибка ${res.status}`);
@@ -27,7 +24,7 @@ export const authorize = (password, email) => {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
-    body: JSON.stringify({ password, email }),
+    body: JSON.stringify({ password, email}),
   }).then((res) => checkResponse(res));
 };
 
