@@ -20,7 +20,6 @@ class MainApi {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
       },
     }).then((res) => this._checkResponse(res));
   }
@@ -31,7 +30,6 @@ class MainApi {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
       },
       body: JSON.stringify({
         name,
@@ -46,7 +44,6 @@ class MainApi {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
       },
     }).then((res) => this._checkResponse(res));
   }
@@ -57,7 +54,6 @@ class MainApi {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
       },
     }).then((res) => this._checkResponse(res));
   }
@@ -68,7 +64,6 @@ class MainApi {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
       },
       body: JSON.stringify({
         country: data.country || "unknown",
@@ -91,7 +86,6 @@ const mainApi = new MainApi({
   baseUrl: BASE_URL,
   headers: {
     "Content-Type": "application/json",
-    Accept: "application/json",
   },
 });
 

@@ -10,7 +10,6 @@ export const register = (password, email, name) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Accept: "application/json",
     },
     body: JSON.stringify({ password, email, name }),
   }).then((res) => checkResponse(res));
@@ -22,7 +21,6 @@ export const authorize = (password, email) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Accept: "application/json",
     },
     body: JSON.stringify({ password, email}),
   }).then((res) => checkResponse(res));
@@ -34,7 +32,6 @@ export const checkToken = () => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Accept: "application/json",
     },
   }).then((res) => checkResponse(res));
 };
@@ -45,7 +42,6 @@ export const logout = () => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Accept: "application/json",
     },
   }).then((res) => checkResponse(res));
 };

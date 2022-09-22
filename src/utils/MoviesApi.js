@@ -22,7 +22,6 @@ class MoviesApi {
 const moviesApi = new MoviesApi({
   baseUrl: "https://api.nomoreparties.co",
   headers: {
-    Accept: "application/json",
     "Content-Type": "application/json",
   },
 });
