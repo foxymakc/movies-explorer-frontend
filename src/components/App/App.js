@@ -15,6 +15,8 @@ import SavedMoviesPage from "../../pages/SavedMoviesPage";
 import ProfilePage from "../../pages/ProfilePage";
 import mainApi from "../../utils/MainApi";
 import * as auth from "../../utils/auth";
+import Header from "../Header/Header";
+import Navigation from "../Navigation/Navigation";
 
 function App() {
   const [isEditMenuOpen, setEditMenuOpen] = useState(false);
@@ -233,9 +235,14 @@ function App() {
             />
 
             <Route exact path="/">
-              <HeaderMain />
+              {loggedIn ? (
+                <Header onEditMenu={handleEditMenuClick} />
+              ) : (
+                <HeaderMain />
+              )}
               <Main />
               <Footer />
+              <Navigation isOpen={isEditMenuOpen} onClose={closeMenu} />
             </Route>
 
             <Route exact path="/signup">

@@ -64,10 +64,9 @@ function Profile(props) {
             type="submit"
             id="profile__button"
           >
-            
             Редактировать
           </button>
-          <a className="profile__link" onClick={props.onLogout} href="/" >
+          <a href="/" className="profile__link" onClick={props.onLogout}>
             Выйти из аккаунта
           </a>
         </fieldset>

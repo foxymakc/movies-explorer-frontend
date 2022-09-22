@@ -8,13 +8,15 @@ function MoviesCard({ movie, movieOptions, onClickMovieBtn }) {
   const CurrentSavedMovies = useContext(CurrentSavedMoviesContext);
   const isLiked = CurrentSavedMovies.some((item) => +item.movieId === movie.id);
 
+
   const handleClickLike = () => {
     if (!isLiked) {
       onClickMovieBtn(movie, "save", null);
     } else {
-      onClickMovieBtn(movie, "delete", CurrentSavedMovies[0]._id);
+      onClickMovieBtn(movie, "delete", (CurrentSavedMovies.filter((item) => +item.movieId === movie.id))[0]._id);
     }
   };
+
 
   const handleClickDelete = () => {
     onClickMovieBtn(movie._id);

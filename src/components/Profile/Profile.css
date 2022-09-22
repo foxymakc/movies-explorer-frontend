@@ -97,6 +97,7 @@
   line-height: 16px;
   color: #ee3465;
   opacity: 1;
+  cursor: pointer;
 }
 
 .profile__input-error {
