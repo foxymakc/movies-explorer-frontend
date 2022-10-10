@@ -1,5 +1,5 @@
 import { BASE_URL } from "./auth";
-const MOVIE_SERVER = "https://api.nomoreparties.co/"
+const MOVIE_SERVER = "https://api.nomoreparties.co/";
 
 class MainApi {
   constructor(options) {
@@ -14,22 +14,24 @@ class MainApi {
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 
-  getUserInfo() {
+  getUserInfo(token) {
     return fetch(`${BASE_URL}/users/me`, {
       method: "GET",
-      credentials: "include",
       headers: {
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
+        Accept: "application/json",
       },
     }).then((res) => this._checkResponse(res));
   }
 
-  handleUserInfo( name, email ) {
+  handleUserInfo(name, email) {
     return fetch(`${BASE_URL}/users/me`, {
       method: "PATCH",
-      credentials: "include",
       headers: {
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
+        Accept: "application/json",
       },
       body: JSON.stringify({
         name,
@@ -38,12 +40,13 @@ class MainApi {
     }).then((res) => this._checkResponse(res));
   }
 
-  getSavedMovies() {
+  getSavedMovies(token) {
     return fetch(`${BASE_URL}/movies`, {
       method: "GET",
-      credentials: "include",
       headers: {
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
+        Accept: "application/json",
       },
     }).then((res) => this._checkResponse(res));
   }
@@ -51,9 +54,10 @@ class MainApi {
   deleteSavedMovies(movieId) {
     return fetch(`${BASE_URL}/movies/${movieId}`, {
       method: "DELETE",
-      credentials: "include",
       headers: {
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
+        Accept: "application/json",
       },
     }).then((res) => this._checkResponse(res));
   }
@@ -61,9 +65,10 @@ class MainApi {
   addSavedMovies(data) {
     return fetch(`${BASE_URL}/movies`, {
       method: "POST",
-      credentials: "include",
       headers: {
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
+        Accept: "application/json",
       },
       body: JSON.stringify({
         country: data.country || "unknown",
@@ -71,9 +76,9 @@ class MainApi {
         duration: data.duration || "Nodata",
         year: data.year || "unknown",
         description: data.description || "Nodescription",
-        image: MOVIE_SERVER+data.image.url,
+        image: MOVIE_SERVER + data.image.url,
         trailerLink: data.trailerLink || "Notrailer",
-        thumbnail: MOVIE_SERVER+data.image.formats.thumbnail.url || "Noimage",
+        thumbnail: MOVIE_SERVER + data.image.formats.thumbnail.url || "Noimage",
         movieId: data.movieId || "Nodata",
         nameRU: data.nameRU || data.nameEN,
         nameEN: data.nameEN || data.nameRU,
@@ -85,6 +90,7 @@ class MainApi {
 const mainApi = new MainApi({
   baseUrl: BASE_URL,
   headers: {
+    Accept: "application/json",
     "Content-Type": "application/json",
   },
 });

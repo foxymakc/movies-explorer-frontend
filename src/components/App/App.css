@@ -13,3 +13,12 @@
   max-width: 1280px;
   min-width: 320px;
 }
+
+.preloader__check{
+  width: 30%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}

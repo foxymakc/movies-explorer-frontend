@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch, useHistory, useLocation } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { CurrentSavedMoviesContext } from "../../contexts/CurrentSavedMoviesContext";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
@@ -17,12 +17,12 @@ import mainApi from "../../utils/MainApi";
 import * as auth from "../../utils/auth";
 import Header from "../Header/Header";
 import Navigation from "../Navigation/Navigation";
+import Preloader from "../Movies/Preloader/Preloader";
 
 function App() {
   const [isEditMenuOpen, setEditMenuOpen] = useState(false);
 
   let history = useHistory();
-  const location = useLocation();
 
   const [isRegisterError, setRegisterError] = useState(false);
   const [isLoginError, setLoginError] = useState(false);
@@ -31,35 +31,60 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
   const [isSavedMovies, setSavedMovies] = useState([]);
-  const token = localStorage.getItem("jwt");
+  const [isRender, setIsRender] = useState(false);
 
   useEffect(() => {
+    checkToken();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (loggedIn) {
+      const token = localStorage.getItem("jwt");
+      Promise.all([mainApi.getUserInfo(token), mainApi.getSavedMovies(token)])
+        .then((data) => {
+          const [userData, savedMovies] = data;
+          setSavedMovies(savedMovies.data.reverse());
+          setCurrentUser(userData);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [loggedIn]);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsRender(true), 1000);
+    return () => clearTimeout(timeout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isRender]);
+
+  if (!isRender)
+    return (
+      <div className="preloader__check">
+        <Preloader />
+      </div>
+    );
+
+  function checkToken() {
+    const token = localStorage.getItem("jwt");
     if (token) {
       auth
         .checkToken(token)
-        .then(() => {
-          setLoggedIn(true);
-          if (
-            location.pathname === "/signup" ||
-            location.pathname === "/signin"
-          ) {
-            history.push("/movies");
-          } else {
-            history.push(location.pathname);
+        .then((data) => {
+          if (data) {
+            setLoggedIn(true);
           }
         })
         .catch((err) => console.log(err));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }
 
   const handleLogin = (password, email) => {
     auth
       .authorize(password, email)
 
       .then((data) => {
-        if (data._id) {
-          localStorage.setItem("jwt", data._id);
+        if (data.token) {
+          localStorage.setItem("jwt", data.token);
           setLoggedIn(true);
           history.push("/movies");
         }
@@ -96,20 +121,8 @@ function App() {
       });
   };
 
-  const handleLogout = () => {
-    auth
-      .logout()
-      .then(() => {
-        setLoggedIn(false);
-        localStorage.clear();
-        setCurrentUser({});
-        setSavedMovies([]);
-        history.push("/");
-      })
-      .catch((err) => console.log(err));
-  };
-
   const getCurrentUser = () => {
+    const token = localStorage.getItem("jwt");
     mainApi
       .getUserInfo(token)
       .then((userData) => {
@@ -180,17 +193,13 @@ function App() {
     setEditMenuOpen(false);
   }
 
-  useEffect(() => {
-    if (loggedIn) {
-      Promise.all([mainApi.getUserInfo(), mainApi.getSavedMovies()])
-        .then((data) => {
-          const [userData, savedMovies] = data;
-          setSavedMovies(savedMovies.data.reverse());
-          setCurrentUser(userData);
-        })
-        .catch((err) => console.log(err));
-    }
-  }, [loggedIn]);
+  const handleLogout = () => {
+    localStorage.clear();
+    setLoggedIn(false);
+    setCurrentUser({});
+    setSavedMovies([]);
+    history.push("/");
+  };
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

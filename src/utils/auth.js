@@ -1,4 +1,6 @@
-export const BASE_URL = "https://diplom.movies.nomoredomains.sbs"; 
+export const BASE_URL = "https://diplom.movies.nomoredomains.sbs";
+
+//export const BASE_URL = "http://localhost:3001";
 
 const checkResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Ошибка ${res.status}`);
@@ -6,9 +8,9 @@ const checkResponse = (res) => {
 
 export const register = (password, email, name) => {
   return fetch(`${BASE_URL}/signup`, {
-    credentials: "include",
     method: "POST",
     headers: {
+      Accept: "application/json",
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ password, email, name }),
@@ -17,31 +19,22 @@ export const register = (password, email, name) => {
 
 export const authorize = (password, email) => {
   return fetch(`${BASE_URL}/signin`, {
-    credentials: "include",
     method: "POST",
     headers: {
+      Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ password, email}),
+    body: JSON.stringify({ password, email }),
   }).then((res) => checkResponse(res));
 };
 
-export const checkToken = () => {
+export const checkToken = (token) => {
   return fetch(`${BASE_URL}/users/me`, {
-    credentials: "include",
     method: "GET",
     headers: {
+      authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
-    },
-  }).then((res) => checkResponse(res));
-};
-
-export const logout = () => {
-  return fetch(`${BASE_URL}/signout`, {
-    credentials: "include",
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
+      Accept: "application/json",
     },
   }).then((res) => checkResponse(res));
 };
