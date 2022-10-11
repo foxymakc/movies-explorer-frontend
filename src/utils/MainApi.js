@@ -77,7 +77,7 @@ class MainApi {
         year: data.year || "unknown",
         description: data.description || "Nodescription",
         image: MOVIE_SERVER + data.image.url,
-        trailerLink: data.trailerLink || "Notrailer",
+        trailerLink: data.trailerLink || MOVIE_SERVER + data.image.url,
         thumbnail: MOVIE_SERVER + data.image.formats.thumbnail.url || "Noimage",
         movieId: data.movieId || "Nodata",
         nameRU: data.nameRU || data.nameEN,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { CurrentSavedMoviesContext } from "../../contexts/CurrentSavedMoviesContext";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
@@ -17,12 +17,12 @@ import mainApi from "../../utils/MainApi";
 import * as auth from "../../utils/auth";
 import Header from "../Header/Header";
 import Navigation from "../Navigation/Navigation";
-import Preloader from "../Movies/Preloader/Preloader";
 
 function App() {
   const [isEditMenuOpen, setEditMenuOpen] = useState(false);
 
   let history = useHistory();
+  const { pathname } = useLocation();
 
   const [isRegisterError, setRegisterError] = useState(false);
   const [isLoginError, setLoginError] = useState(false);
@@ -31,12 +31,6 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
   const [isSavedMovies, setSavedMovies] = useState([]);
-  const [isRender, setIsRender] = useState(false);
-
-  useEffect(() => {
-    checkToken();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   useEffect(() => {
     if (loggedIn) {
@@ -51,18 +45,12 @@ function App() {
     }
   }, [loggedIn]);
 
+  
   useEffect(() => {
-    const timeout = setTimeout(() => setIsRender(true), 1000);
-    return () => clearTimeout(timeout);
+    checkToken() 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isRender]);
+  }, []);
 
-  if (!isRender)
-    return (
-      <div className="preloader__check">
-        <Preloader />
-      </div>
-    );
 
   function checkToken() {
     const token = localStorage.getItem("jwt");
@@ -72,6 +60,7 @@ function App() {
         .then((data) => {
           if (data) {
             setLoggedIn(true);
+           history.push(pathname)
           }
         })
         .catch((err) => console.log(err));
@@ -207,7 +196,6 @@ function App() {
         <div className="app">
           <Switch>
             <ProtectedRoute
-              exact
               path="/movies"
               loggedIn={loggedIn}
               component={MoviesPage}
@@ -218,7 +206,6 @@ function App() {
             />
 
             <ProtectedRoute
-              exact
               path="/saved-movies"
               loggedIn={loggedIn}
               component={SavedMoviesPage}
@@ -229,7 +216,6 @@ function App() {
             />
 
             <ProtectedRoute
-              exact
               path="/profile"
               loggedIn={loggedIn}
               component={ProfilePage}
@@ -254,7 +240,7 @@ function App() {
               <Navigation isOpen={isEditMenuOpen} onClose={closeMenu} />
             </Route>
 
-            <Route exact path="/signup">
+            <Route path="/signup">
               <Register
                 handleRegister={handleRegister}
                 isRegisterError={isRegisterError}
@@ -262,7 +248,7 @@ function App() {
               />
             </Route>
 
-            <Route exact path="/signin">
+            <Route path="/signin">
               <Login
                 handleLogin={handleLogin}
                 isLoginError={isLoginError}
