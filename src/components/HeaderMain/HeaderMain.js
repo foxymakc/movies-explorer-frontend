@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import "./HeaderMain.css";
 
@@ -6,17 +7,17 @@ function HeaderMain() {
   return (
     <header className="header">
       <nav className="header__links">
-        <a className="header__logo" href="/">
+        <NavLink className="header__logo" to="/">
           <Logo />
-        </a>
+        </NavLink>
       </nav>
       <div className="header__profile">
-        <a className="header__profile-link" href="/signup">
+        <NavLink className="header__profile-link" to="/signup">
           Регистрация
-        </a>
-        <a className="header__profile-link" href="/signin">
+        </NavLink>
+        <NavLink className="header__profile-link" to="/signin">
           Войти
-        </a>
+        </NavLink>
       </div>
     </header>
   );

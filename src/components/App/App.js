@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch, useHistory, useLocation } from "react-router-dom";
+import {
+  Redirect,
+  Route,
+  Switch,
+  useHistory,
+  useLocation,
+} from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { CurrentSavedMoviesContext } from "../../contexts/CurrentSavedMoviesContext";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
@@ -45,12 +51,10 @@ function App() {
     }
   }, [loggedIn]);
 
-  
   useEffect(() => {
-    checkToken() 
+    checkToken();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
 
   function checkToken() {
     const token = localStorage.getItem("jwt");
@@ -60,7 +64,7 @@ function App() {
         .then((data) => {
           if (data) {
             setLoggedIn(true);
-           history.push(pathname)
+            history.push(pathname);
           }
         })
         .catch((err) => console.log(err));
@@ -187,6 +191,7 @@ function App() {
     setLoggedIn(false);
     setCurrentUser({});
     setSavedMovies([]);
+    setErrorText("");
     history.push("/");
   };
 
@@ -241,19 +246,27 @@ function App() {
             </Route>
 
             <Route path="/signup">
-              <Register
+            {loggedIn ? (
+                <Redirect to="/" />
+              ) : (
+                <Register
                 handleRegister={handleRegister}
                 isRegisterError={isRegisterError}
                 isErrorText={isErrorText}
               />
+              )}
             </Route>
 
             <Route path="/signin">
-              <Login
+            {loggedIn ? (
+                <Redirect to="/" />
+              ) : (
+                <Login
                 handleLogin={handleLogin}
                 isLoginError={isLoginError}
                 isErrorText={isErrorText}
               />
+              )}
             </Route>
 
             <Route path="*">

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { NavLink } from "react-router-dom";
 import Form from "../Form/Form";
 import Input from "../Input/Input";
 import Logo from "../Logo/Logo";
@@ -20,9 +21,9 @@ function Login(props) {
   return (
     <div className="register">
       <header className="header__auth">
-        <a href="/" className="header__auth-logo">
+        <NavLink to="/" className="header__auth-logo">
           <Logo />
-        </a>
+        </NavLink>
       </header>
 
       <Form
