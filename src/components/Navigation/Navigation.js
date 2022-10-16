@@ -34,14 +34,14 @@ function Navigation(props) {
           </NavLink>
         </div>
         <div className="header__profile-btn">
-          <a href="/profile" className="header__profile-btn-text">
+          <NavLink to="/profile" className="header__profile-btn-text">
             <img
               className="logo__profile"
               src={accountLogo}
               alt="иконка человечка"
             />
             Аккаунт
-          </a>
+          </NavLink>
         </div>
       </nav>
     </div>

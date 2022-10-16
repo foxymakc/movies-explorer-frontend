@@ -12,8 +12,16 @@
 
 ## Публичный IP-адрес сервера
 
-130.193.42.180
+51.250.111.253
 
 ## Домен сервера
 
 https://diplom.movies-explorer.nomorepartiesxyz.ru 
+
+## Макет фигмы 
+
+https://www.figma.com/file/Qw8vApPd1PT4Z59M0Wm73j/Diploma-(Copy)?node-id=891%3A3857
+
+## Пул реквест
+
+https://github.com/foxymakc/movies-explorer-frontend/pull/2 

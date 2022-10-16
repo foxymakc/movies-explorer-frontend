@@ -1,42 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect } from 'react';
+import { NavLink } from "react-router-dom";
 import Form from "../Form/Form";
 import Input from "../Input/Input";
 import Logo from "../Logo/Logo";
+import useValidation from "../../hooks/useValidation";
 import "../Register/Register.css";
 
-function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+function Login(props) {
+  const { values, handleChange, errors, isValid, resetForm } = useValidation();
 
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
+  useEffect(() => {
+    resetForm();
+  }, [resetForm]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!email || !password) return;
+    props.handleLogin(values.password, values.email);
   };
 
   return (
     <div className="register">
       <header className="header__auth">
-        <a href="/" className="header__auth-logo">
+        <NavLink to="/" className="header__auth-logo">
           <Logo />
-        </a>
+        </NavLink>
       </header>
 
       <Form
         name="form-register"
         title="Рады видеть!"
+        isSignInError={props.isSignInError}
+        isDisabled={!isValid}
         onSubmit={handleSubmit}
         textBtn="Войти"
         textSpan="Ещё не зарегистрированы?"
         Link="/signup"
         textLink="Регистрация"
+        isLoginError={props.isLoginError}
+        isErrorText={props.isErrorText}
       >
         <Input
           type="email"
@@ -45,10 +46,12 @@ function Login() {
           maxLength="40"
           minLength="2"
           placeholder="E-mail"
+          pattern="^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$"
           required
           errorId="email-error"
-          onChange={handleEmailChange}
-          value={email || "pochta@yandex.ru|"}
+          errorText={errors.email}
+          onChange={handleChange}
+          value={values.email || ''}
         >
           E-mail
         </Input>
@@ -57,11 +60,12 @@ function Login() {
           type="password"
           id="password"
           name="password"
-          placeholder=" "
+          placeholder="Пароль"
           required
           errorId="password-error"
-          onChange={handlePasswordChange}
-          value={password}
+          errorText={errors.password}
+          onChange={handleChange}
+          value={values.password || ''}
         >
           Пароль
         </Input>

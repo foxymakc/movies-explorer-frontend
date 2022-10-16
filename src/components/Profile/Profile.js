@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
+import useValidation from "../../hooks/useValidation";
 import "./Profile.css";
 
-function Profile() {
+function Profile(props) {
+  const { values, setValues, handleChange, errors, isValid, setIsValid } =
+    useValidation();
+
+  useEffect(() => {
+    setValues(props.currentUser);
+    setIsValid(true);
+  }, [props.currentUser, setValues, setIsValid]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.handleUpdateUserInfo(values);
+  };
+
   return (
     <section className="profile">
-      <form className="profile__container" id="profile_form">
-        <h2 className="profile__title">Привет, Виталий!</h2>
+      <form className="profile__container" id="profile_form" onSubmit={handleSubmit}>
+        <h2 className="profile__title">Привет, {props.currentUser.name}!</h2>
         <div className="profile__input">
           <label className="profile__input-label">Имя</label>
           <input
@@ -17,9 +31,11 @@ function Profile() {
             minLength="2"
             placeholder="Имя"
             required
-            pattern="^[A-Za-z]([A-Za-z]| |-){1,28}[A-Za-z]$"
-            value="Виталий"
+            pattern="[A-Za-zА-ЯЁа-яё -]+"
+            value={values.name || ''}
+            onChange={handleChange}
           />
+          <span className="profile__input-error">{errors.name}</span>
         </div>
         <div className="profile__input">
           <label className="profile__input-label">E-mail</label>
@@ -31,18 +47,26 @@ function Profile() {
             placeholder="Почта"
             required
             pattern="^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$"
-            value="pochta@yandex.ru"
+            value={values.email || ''}
+            onChange={handleChange}
           />
+          <span className="profile__input-error">{errors.email}</span>
         </div>
         <fieldset className="profile__submit-group">
+        { props.isProfileError && <span className="profile__submit-group-error">{props.isErrorText}</span>}
           <button
-            className="profile__button"
+            className={(isValid && (values.name !== props.currentUser.name
+              || values.email !== props.currentUser.email))
+              ? 'profile__button'
+              : 'profile__button profile__button-inactive'}
+              disabled={(values.name === props.currentUser.name
+                && values.email === props.currentUser.email) || !isValid}
             type="submit"
             id="profile__button"
           >
             Редактировать
           </button>
-          <a className="profile__link" href="/signout">
+          <a href="/" className="profile__link" onClick={props.onLogout}>
             Выйти из аккаунта
           </a>
         </fieldset>

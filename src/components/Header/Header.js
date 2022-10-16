@@ -9,9 +9,9 @@ function Header(props) {
     <header className="header">
       <div className="header__pc">
         <nav className="header__links">
-          <a className="header__logo" href="/">
+          <NavLink className="header__logo" to="/">
             <Logo />
-          </a>
+          </NavLink>
           <div className="header__films">
             <NavLink
               to="/movies"
@@ -31,14 +31,14 @@ function Header(props) {
           </div>
         </nav>
         <div className="header__profile-btn">
-          <a href="/profile" className="header__profile-btn-text">
+        <NavLink to="/profile" className="header__profile-btn-text">
             <img
               className="logo__profile"
               src={accountLogo}
               alt="иконка человечка"
             />
             Аккаунт
-          </a>
+          </NavLink>
         </div>
       </div>
       <div className="header__tab">
