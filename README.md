@@ -13,6 +13,28 @@
 - Редактирование профиля пользователя
 - Валидация полей форм
 
+**<h2>Технологии:</h2>**
+
+* **HTML**
+  * **Семантика HTML элементов**
+
+* **CSS**
+  * **Flex-box**
+  * **Grid-layout**
+  * **Adaptive & Responsive**
+
+* **JavaScript**
+  * **Vanilla JS: Function, Array, Event**
+  * **Валидация с помощью Java Script**
+  * **Использование модулей Js, Export и Import функций и переменных**
+  * **Работа с Api**
+  * **Promise**
+  * **Create React App**
+  * **JSX**
+  * **React hooks**
+  * **Аутентификация на React**
+  * **ES6 Деструктуризация**
+
 ## Запуск проекта
 `npm i` —  установка зависимостей
 
